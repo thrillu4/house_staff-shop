@@ -17,6 +17,10 @@ body {
   margin: 50px auto;
 }
 
+header {
+  position: relative;
+}
+
 header .logo {
   font-weight: 600;
   font-size: 20px;
@@ -48,7 +52,7 @@ header .bckgnd {
 }
 
 header .bckgnd::after {
-  content: "best goods for you";
+  content: "Best goods for you";
   position: absolute;
   top: 100px;
   left: 50px;
@@ -69,6 +73,84 @@ header .bckgnd::before {
   color: #fff;
 }
 
+header .shop-logo {
+  cursor: pointer;
+  float: right;
+  transition: all .5s;
+}
+
+header .shop-logo:hover,
+header .shop-logo.active {
+  color: rgb(62, 97, 97);
+  transform: scale(1.4);
+  transition: all .5s;
+}
+
+header .shop-modal {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 450px;
+  background: rgb(222, 229, 229);
+  -webkit-box-shadow: -1px 2px 17px -4px rgba(0,0,0,0.81);
+  -moz-box-shadow: -1px 2px 17px -4px rgba(0,0,0,0.81);
+  box-shadow: -1px 2px 17px -4px rgba(0,0,0,0.81);
+  z-index: 10;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+header .shop-modal .empty {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+header .shop-modal .item {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+header .shop-modal .item img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+header .shop-modal .item h2 {
+  font-size: 20px;
+  margin-bottom: 10px; 
+}
+
+header .shop-modal .item p {
+  font-weight: 600;
+
+}
+
+header .shop-modal .item .delete-item {
+  color: rgb(39, 50, 50);
+  float: right;
+  position: relative;
+  top: -15px;
+  cursor: pointer;
+  transition: all .5s;
+  width: 50px;
+  transform: scale(1.6);
+}
+
+header .shop-modal .item .delete-item:hover {
+  color: rgb(134, 160, 160);
+  transform: scale(2.2);
+}
+
+header .shop-modal .total {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
 main {
   display: flex;
   width: 100%;
@@ -85,23 +167,27 @@ main .item {
   margin: 15px 0;
 }
 
-main .item img {
+main .item img,
+.full-item .item img {
   width: 100%;
   min-height: 384px;
   border-radius: 10px 10px;
   transition: all .5s;
 }
 
-main .item img:hover {
+main .item img:hover,
+.full-item .item img:hover {
   transform: scale(1.05);
 }
 
-main p, main h2, main b {
+main p, main h2, main b,
+.full-item p, .full-item h2, .full-item b {
   padding: 10px 20px;
   color: rgb(74 2 2);
 }
 
-main .add-to-card {
+main .add-to-card,
+.full-item .add-to-card {
   position: absolute;
   bottom: 20px;
   right: 11px;
@@ -115,9 +201,50 @@ main .add-to-card {
   transition: all .5s;
 }
 
-main .add-to-card:hover {
+main .add-to-card:hover,
+.full-item .add-to-card:hover {
   transform: scale(1.05) translateY(-5px);
 
+}
+
+.categories div{
+  display: inline-block;
+  border-radius: 50px;
+  background:rgb(227, 214, 214);
+  cursor: pointer;
+  margin: 20px 15px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  transition: all .5s;
+}
+
+.categories div:hover {
+  border-color: aquamarine;
+  transform: scale(1.05);
+}
+
+.full-item {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:rgba(0, 0, 0, 0.648);
+  z-index: 1111;
+  overflow: auto;
+}
+
+.full-item > div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 9px;
+}
+
+.full-item > div img {
+  width: 100%;
 }
 
 footer {
